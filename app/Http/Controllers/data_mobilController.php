@@ -37,7 +37,7 @@ class data_mobilController extends Controller
         }
 
         $simpan = data_mobil::create([
-            'id_jenis_mobil'=>$req->id_jenis_mobil,
+            'id_jenis'=>$req->id_jenis,
             'nama_mobil'=>$req->nama_mobil,
             'plat_nomor'=>$req->plat_nomor,
             'merk'=>$req->merk,
@@ -70,7 +70,7 @@ class data_mobilController extends Controller
         }
 
         $ubah = data_mobil::where('id', $id)->update([
-            'id_jenis_mobil'=>$req->id_jenis_mobil,
+            'id_jenis'=>$req->id_jenis,
             'nama_mobil'=>$req->nama_mobil,
             'plat_nomor'=>$req->plat_nomor,
             'merk'=>$req->merk,

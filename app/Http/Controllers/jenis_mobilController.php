@@ -25,7 +25,8 @@ class jenis_mobilController extends Controller
         
         $validator = Validator::make($req->all(),
         [
-            'jenis_mobil'=>'required'
+            'jenis_mobil'=>'required',
+            'harga_sewa'=>'required'
         ]
         );
         if($validator->fails()){
@@ -33,7 +34,8 @@ class jenis_mobilController extends Controller
         }
 
         $simpan = jenis_mobil::create([
-            'jenis_mobil'=>$req->jenis_mobil
+            'jenis_mobil'=>$req->jenis_mobil,
+            'harga_sewa'=>$req->harga_sewa
         ]);
         if($simpan){
             return Response()->json('Data Jenis Mobil berhasil ditambahkan');
@@ -50,7 +52,8 @@ class jenis_mobilController extends Controller
 
         $validator = Validator::make($req->all(),
         [
-            'jenis_mobil'=>'required'
+            'jenis_mobil'=>'required',
+            'harga_sewa'=>'required'
         ]
         );
         if($validator->fails()){
@@ -58,7 +61,8 @@ class jenis_mobilController extends Controller
         }
 
         $ubah = jenis_mobil::where('id', $id)->update([
-            'jenis_mobil'=>$req->jenis_mobil
+            'jenis_mobil'=>$req->jenis_mobil,
+            'harga_sewa'=>$req->harga_sewa
             
             
         ]);

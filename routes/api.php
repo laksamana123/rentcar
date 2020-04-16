@@ -29,6 +29,12 @@ Route::put('ubah_jenis_mobil/{id}','jenis_mobilController@update')->middleware('
 Route::get('jenis_mobil/{id}','jenis_mobilController@show')->middleware('jwt.verify');
 Route::delete('hapus_jenis_mobil/{id}','jenis_mobilController@destroy')->middleware('jwt.verify');
 
+// data mobil
+Route::post('simpan_mobil','data_mobilController@insert')->middleware('jwt.verify');
+Route::put('ubah_mobil/{id}','data_mobilController@update')->middleware('jwt.verify');
+Route::get('mobil/{id}','data_mobilController@show')->middleware('jwt.verify');
+Route::delete('hapus_mobil/{id}','data_mobilController@destroy')->middleware('jwt.verify');
+
 // penyewa
 Route::post('simpan_penyewa','penyewaController@insert')->middleware('jwt.verify');
 Route::put('ubah_penyewa/{id}','penyewaController@update')->middleware('jwt.verify');

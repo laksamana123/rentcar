@@ -7,7 +7,6 @@ use App\penyewa;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 
-
 class penyewaController extends Controller
 {
     public function show()
@@ -28,7 +27,9 @@ class penyewaController extends Controller
             'nama_penyewa'=>'required',
             'alamat'=>'required',
             'telp'=>'required',
+            'no_ktp'=>'required',
             'foto_ktp'=>'required'
+
         ]
         );
         if($validator->fails()){
@@ -36,16 +37,17 @@ class penyewaController extends Controller
         }
 
         $simpan = penyewa::create([
-            'nama_pelanggan'=>$req->nama_pelanggan,
-            'alamat_pelanggan'=>$req->alamat_pelanggan,
+            'nama_penyewa'=>$req->nama_penyewa,
+            'alamat'=>$req->alamat,
             'telp'=>$req->telp,
             'no_ktp'=>$req->no_ktp,
-            'foto'=>$req->foto
+            'foto_ktp'=>$req->foto_ktp
+
         ]);
         if($simpan){
-            return Response()->json('Data Pelanggan berhasil ditambahkan');
+            return Response()->json('Data Penyewa berhasil ditambahkan');
         }else{
-            return Response()->json('Data Pelanggan gagal ditambahkan');
+            return Response()->json('Data Penyewa gagal ditambahkan');
         }
     }else{
         return Response()->json('Anda Bukan admin');
@@ -60,7 +62,9 @@ class penyewaController extends Controller
             'nama_penyewa'=>'required',
             'alamat'=>'required',
             'telp'=>'required',
+            'no_ktp'=>'required',
             'foto_ktp'=>'required'
+
         ]
         );
         if($validator->fails()){
@@ -71,14 +75,16 @@ class penyewaController extends Controller
             'nama_penyewa'=>$req->nama_penyewa,
             'alamat'=>$req->alamat,
             'telp'=>$req->telp,
+            'no_ktp'=>$req->no_ktp,
             'foto_ktp'=>$req->foto_ktp
+
             
             
         ]);
         if($ubah){
-            return Response()->json('Data Pelanggan berhasil diubah');
+            return Response()->json('Data Penyewa berhasil diubah');
         }else{
-            return Response()->json('Data Pelanggan gagal diubah');
+            return Response()->json('Data Penyewa gagal diubah');
         }
     }else{
         return Response()->json('Anda Bukan admin');
